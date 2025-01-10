@@ -1,7 +1,6 @@
+import os
 from flask import Flask, request, url_for, redirect, render_template
 import pickle
-import os
-
 import numpy as np
 
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
@@ -9,15 +8,14 @@ app = Flask(__name__, template_folder='./templates', static_folder='./static')
 Pkl_Filename = "rf_tuned.pkl" 
 with open(Pkl_Filename, 'rb') as file:  
     model = pickle.load(file)
-@app.route('/')
 
+@app.route('/')
 def hello_world():
     return render_template('home.html')
 
 @app.route('/predict', methods=['POST','GET'])
 def predict():
     features = [int(x) for x in request.form.values()]
-
     print(features)
     final = np.array(features).reshape((1,6))
     print(final)
@@ -30,6 +28,3 @@ def predict():
     else:
         return render_template('op.html', pred='Expected amount is {0:.3f}'.format(pred))
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use dynamic port
-    app.run(host='0.0.0.0', port=port)  # Bind to all IPs
