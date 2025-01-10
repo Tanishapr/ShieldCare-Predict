@@ -1,6 +1,5 @@
 # ShieldCare Predict: Predictive Health Insurance Model
-
-    ![Logo](./sampleImages/logo_image.png)
+![Logo](sampleImages/logo_image.png)
 
 ## Project Overview
 
