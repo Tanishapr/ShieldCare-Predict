@@ -1,6 +1,7 @@
 # ShieldCare Predict: Predictive Health Insurance Model 
 
-    ![Logo](./sampleImages/logo_image.png)
+    ![Logo](https://raw.githubusercontent.com/Khushboo-Mittal/ShieldCare-Predict/main/sampleImages/logo_image.png)
+
 
 ## Project Overview
 
