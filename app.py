@@ -1,5 +1,6 @@
 from flask import Flask, request, url_for, redirect, render_template
 import pickle
+import os
 
 import numpy as np
 
@@ -30,4 +31,5 @@ def predict():
         return render_template('op.html', pred='Expected amount is {0:.3f}'.format(pred))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use dynamic port
+    app.run(host='0.0.0.0', port=port)  # Bind to all IPs
