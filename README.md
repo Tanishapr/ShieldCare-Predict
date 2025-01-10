@@ -2,7 +2,7 @@
 
 ![Logo](sampleImages/logo_image.png)
 
-## Project Overview
+
 
 ShieldCare Predict is a predictive analytics project aimed at estimating health insurance premiums based on customer-specific factors such as age, smoking habits, BMI, genetic risks, and medical history. By leveraging data science techniques, the project ensures efficient, accurate, and fair premium estimations, enhancing customer experience and optimizing insurance processes.
 
