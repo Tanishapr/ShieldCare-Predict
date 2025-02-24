@@ -1,24 +1,77 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-        <title>Prediction Data</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        .result-box {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            margin: 20px 0;
+        }
+        ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            background: #e3f2fd;
+        }
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Predicted Amount:</h2>
+        <p class="result-box">{{ pred }}</p>  <!-- ✅ Displays the predicted amount -->
 
-    <body>
-        <nav class="light-blue darken-4">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">ShieldCare Predict</a>
+        {% if explanation %}
+            <h3>Top Contributing Factors:</h3>
+            <ul>
+                {% for factor in explanation.split(', ') %}
+                <li>
+                        {{ factor }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-        </nav>
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h3 class="header red-text">Predicted Amount : </h3>
-                <h3>{{pred}}</h3>
-            </div>
-        </div>
-    </body>
+        <a href="/" class="btn">Go Back</a>
 
+    </div>
+</body>
 </html>
